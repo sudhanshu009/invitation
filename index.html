@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubh Vivah - Sahil & Komal</title>
+
+    <!-- Meta tags for premium SEO and sharing -->
+    <meta name="description"
+        content="You are cordially invited to the Royal Wedding Celebration of Sahil and Komal. Join us to bless the couple.">
+    <meta name="keywords" content="Sahil Komal Wedding, Royal Indian Wedding, Wedding Invitation, Shubh Vivah">
+
+    <!-- Google Fonts for Royal Indian Aesthetics -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Marcellus&family=Noto+Serif+Devanagari:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Elegant Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Fallback Canvas for Flower Showers and Particles -->
+    <canvas id="flower-canvas"></canvas>
+
+    <!-- Cursor Sparkles Container -->
+    <div id="sparkle-container"></div>
+
+    <!-- Music Controller -->
+    <button id="music-btn" class="hidden" aria-label="Toggle Music">
+        <i class="fa-solid fa-music"></i>
+        <div class="music-wave">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- Background Audio Loop -->
+    <audio id="bg-music"
+        src="https://vinitshahdeo.github.io/Wedding-Invitation/assets/mp3/song.mp3" loop></audio>
+
+    <!-- SECTION 0: ENTER OVERLAY (Envelope / Gate Opening) -->
+    <div id="enter-overlay">
+        <div class="envelope-container">
+            <div class="envelope-gate left-gate"></div>
+            <div class="envelope-gate right-gate"></div>
+            <div class="envelope-card">
+                <div class="envelope-content">
+                    <div class="ganesha-logo">
+                        <svg class="gold-svg" viewBox="0 0 100 100" width="80" height="80">
+                            <path
+                                d="M50,15 C45,15 42,20 42,25 C42,28 44,30 46,31 C40,32 35,36 33,42 C30,48 31,56 35,62 C38,66 42,68 47,69 C48,72 49,75 49,78 C47,78 45,76 43,74 C41,72 38,72 36,74 C34,76 34,79 36,81 C40,85 45,86 50,86 C55,86 60,85 64,81 C66,79 66,76 64,74 C62,72 59,72 57,74 C55,76 53,78 51,78 C51,75 52,72 53,69 C58,68 62,66 65,62 C69,56 70,48 67,42 C65,36 60,32 54,31 C56,30 58,28 58,25 C58,20 55,15 50,15 Z M50,19 C52,19 54,21 54,24 C54,27 52,29 50,29 C48,29 46,27 46,24 C46,21 48,19 50,19 Z M48,34 C49,34 51,34 52,34 C58,35 62,39 64,44 C65,48 64,54 62,58 C59,62 55,64 50,64 C45,64 41,62 38,58 C36,54 35,48 36,44 C38,39 42,35 48,34 Z"
+                                fill="url(#goldGradient)" />
+                            <defs>
+                                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#BF953F" />
+                                    <stop offset="25%" stop-color="#FCF6BA" />
+                                    <stop offset="50%" stop-color="#B38728" />
+                                    <stop offset="75%" stop-color="#FBF5B7" />
+                                    <stop offset="100%" stop-color="#AA771C" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h2 class="title-gold">श्री गणेशाय नमः</h2>
+                    <p class="subtitle-royal">The Royal Wedding Invitation</p>
+                    <div class="names-intro">Sahil & Komal</div>
+                    <button id="enter-btn" class="gold-btn">
+                        <span class="btn-text">Open Invitation</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN SCROLLABLE SITE CONTAINER -->
+    <div id="main-content" class="hidden">
+
+        <!-- SECTION 1: OPENING CINEMATIC INTRO -->
+        <section id="cinematic-intro" class="section-full active-cinematic">
+            <div class="intro-bg-overlay"></div>
+            <div class="cinematic-container">
+                <div class="glowing-om-container">
+                    <div class="om-symbol">ॐ</div>
+                    <div class="divine-rays"></div>
+                </div>
+                <div class="smoke-layer"></div>
+                <div class="divine-blessings-intro">
+                    <span class="bell-icon"><i class="fa-solid fa-bell-on"></i></span>
+                    <p class="spiritual-subtitle">An Auspicious Union</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: GANESH VANDANA -->
+        <section id="ganesh-vandana" class="scroll-reveal section-padding">
+            <div class="glass-card main-card-layout">
+                <div class="card-deco-top"></div>
+                <div class="ganesha-art">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23D4AF37'><path d='M50,10 C42,10 38,15 38,22 C38,25 40,28 43,29 C38,30 33,35 31,40 C28,48 29,57 34,64 C37,68 42,71 47,72 C47.5,75 48,78 47.5,81 C46,81 44,79 42,77 C40,75 37,75 35,77 C33,79 33,82 35,84 C39,88 44.5,89 50,89 C55.5,89 61,88 65,84 C67,82 67,79 65,77 C63,75 60,75 58,77 C56,79 54,81 52.5,81 C52,78 52.5,75 53,72 C58,71 63,68 66,64 C71,57 72,48 69,40 C67,35 62,30 57,29 C60,28 62,25 62,22 C62,15 58,10 50,10 Z M50,14 C52,14 54,16 54,18.5 C54,21 52,23 50,23 C48,23 46,21 46,18.5 C46,16 48,14 50,14 Z M48,32 C49,32 51,32 52,32 C57.5,33 61,37 63,42 C64,46 63,52 61,56 C58.5,60 54.5,62 50,62 C45.5,62 41.5,60 39,56 C37,52 36,46 37,42 C39,37 42.5,32 48,32 Z'/></svg>"
+                        alt="Ganesha" class="ganesha-svg-img">
+                </div>
+                <div class="shloka-text devanagari-font">
+                    <p class="glowing-text">॥ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ॥</p>
+                    <p class="glowing-text">॥ निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</p>
+                </div>
+                <div class="divider-line">
+                    <span class="divider-flower">🌸</span>
+                </div>
+                <div class="translation-text hindi-font">
+                    "भगवान श्री गणेश से प्रार्थना है कि<br>
+                    साहिल एवं कोमल के शुभ विवाह समारोह को<br>
+                    सदैव मंगलमय एवं निर्विघ्न सम्पन्न करें।"
+                </div>
+                <div class="card-deco-bottom"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: MANGAL SHLOKA -->
+        <section id="mangal-shloka" class="scroll-reveal section-padding">
+            <div class="glass-card main-card-layout">
+                <div class="card-deco-top"></div>
+                <div class="divine-symbol">
+                    <i class="fa-solid fa-dharmachakra divine-chakra-spin"></i>
+                </div>
+                <div class="shloka-text devanagari-font">
+                    <p class="glowing-text">॥ मंगलं भगवान विष्णुः ॥</p>
+                    <p class="glowing-text">॥ मंगलं गरुड़ध्वजः ॥</p>
+                    <p class="glowing-text">॥ मंगलं पुण्डरीकाक्षः ॥</p>
+                    <p class="glowing-text">॥ मंगलायतनो हरिः ॥</p>
+                </div>
+                <div class="divider-line">
+                    <span class="divider-flower">🌼</span>
+                </div>
+                <div class="translation-text hindi-font">
+                    "ईश्वर की असीम कृपा एवं परिवार के आशीर्वाद से<br>
+                    दो आत्माएँ एक पवित्र बंधन में बंधने जा रही हैं।"
+                </div>
+                <div class="card-deco-bottom"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: MAIN INVITATION -->
+        <section id="main-invitation" class="scroll-reveal section-padding">
+            <div class="glass-card invitation-card">
+                <div class="corner-border border-tl"></div>
+                <div class="corner-border border-tr"></div>
+                <div class="corner-border border-bl"></div>
+                <div class="corner-border border-br"></div>
+
+                <div class="invitation-header">
+                    <div class="animated-rings">💍</div>
+                    <h1 class="invitation-title">Wedding Invitation</h1>
+                    <div class="animated-rings">💍</div>
+                </div>
+
+                <div class="couple-names">
+                    <span class="groom-name text-reveal">Sahil</span>
+                    <span class="heart-symbol animate-heart"><i class="fa-solid fa-heart"></i></span>
+                    <span class="bride-name text-reveal">Komal</span>
+                </div>
+
+                <div class="divider-line">
+                    <span class="divider-flower">🏵️</span>
+                </div>
+
+                <p class="invitation-wording">
+                    "With the blessings of our beloved elders,<br>
+                    we cordially invite you and your family<br>
+                    to grace this joyous occasion<br>
+                    and bless Sahil & Komal<br>
+                    as they begin a beautiful journey together."
+                </p>
+
+                <div class="floral-frame-deco">
+                    <div class="marigold-garland"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: EVENT TIMELINE -->
+        <section id="event-timeline" class="scroll-reveal section-padding">
+            <h2 class="section-title">Ceremony Timeline</h2>
+
+            <div class="event-cards-list">
+                <!-- Event 1 -->
+                <div class="glass-card main-card-layout event-card scroll-reveal">
+                    <div class="card-deco-top"></div>
+                    <div class="event-card-image">
+                        <img src="assets/tilak_ceremony.png" alt="Tilak & Faldaan Ceremony" class="event-illustration">
+                    </div>
+                    <div class="event-date">26 November</div>
+                    <h3 class="event-title">Tilak & Faldaan Ceremony</h3>
+                    <p class="event-desc">Marking the auspicious beginning of our wedding festivities with the holy
+                        Tilak and exchange of blessings.</p>
+                    <div class="card-deco-bottom"></div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="glass-card main-card-layout event-card scroll-reveal">
+                    <div class="card-deco-top"></div>
+                    <div class="event-card-image">
+                        <img src="assets/haldi_ceremony.png" alt="Haldi Ceremony" class="event-illustration">
+                    </div>
+                    <div class="event-date">27 November</div>
+                    <h3 class="event-title">Haldi Ceremony</h3>
+                    <p class="event-desc">Drenching the bride and groom in love, laughter, and auspicious turmeric
+                        paste.</p>
+                    <div class="card-deco-bottom"></div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="glass-card main-card-layout event-card scroll-reveal">
+                    <div class="card-deco-top"></div>
+                    <div class="event-card-image">
+                        <img src="assets/mehndi_ceremony.png" alt="Mehndi Ceremony" class="event-illustration">
+                    </div>
+                    <div class="event-date">28 November</div>
+                    <h3 class="event-title">Mehndi Ceremony</h3>
+                    <p class="event-desc">Adorning hands with intricate henna designs, rich colors, and beautiful
+                        patterns of love.</p>
+                    <div class="card-deco-bottom"></div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="glass-card main-card-layout event-card scroll-reveal">
+                    <div class="card-deco-top"></div>
+                    <div class="event-card-image">
+                        <img src="assets/satyanarayan_puja.png" alt="Satyanarayan Bhagwan Puja" class="event-illustration">
+                    </div>
+                    <div class="event-date">29 November</div>
+                    <h3 class="event-title">Satyanarayan Bhagwan Puja</h3>
+                    <p class="event-desc">Seeking divine blessings of Lord Vishnu for harmony, prosperity, and
+                        lifelong companionship.</p>
+                    <div class="card-deco-bottom"></div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="glass-card main-card-layout event-card golden-border scroll-reveal">
+                    <div class="card-deco-top"></div>
+                    <div class="event-card-image">
+                        <img src="assets/shubh_vivah.png" alt="Shubh Vivah" class="event-illustration">
+                    </div>
+                    <div class="event-date highlight-text">30 November</div>
+                    <h3 class="event-title highlight-title">Shubh Vivah</h3>
+                    <p class="event-desc">The holy wedding ceremony under the sacred canopy (Mandap) and the wedding
+                        vows (Pheras).</p>
+                    <div class="card-deco-bottom"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: COUNTDOWN -->
+        <section id="countdown" class="scroll-reveal section-padding">
+            <h2 class="section-title">The Auspicious Countdown</h2>
+            <div class="countdown-container">
+                <div class="countdown-card glass-card">
+                    <span id="days" class="countdown-number">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-card glass-card">
+                    <span id="hours" class="countdown-number">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-card glass-card">
+                    <span id="minutes" class="countdown-number">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-card glass-card">
+                    <span id="seconds" class="countdown-number">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: PHOTO GALLERY -->
+        <section id="photo-gallery" class="scroll-reveal section-padding">
+            <h2 class="section-title">Glimpses of Love</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item glass-card">
+                    <img src="assets/gallery1.png" alt="Pre-wedding Moment 1" loading="lazy">
+                </div>
+                <div class="gallery-item glass-card">
+                    <img src="assets/gallery2.png" alt="Pre-wedding Moment 2" loading="lazy">
+                </div>
+                <div class="gallery-item glass-card">
+                    <img src="assets/gallery3.png" alt="Pre-wedding Moment 3" loading="lazy">
+                </div>
+                <div class="gallery-item glass-card">
+                    <img src="assets/gallery4.png" alt="Pre-wedding Moment 4" loading="lazy">
+                </div>
+                <div class="gallery-item glass-card">
+                    <img src="assets/gallery5.png" alt="Pre-wedding Moment 5" loading="lazy">
+                </div>
+                <div class="gallery-item glass-card">
+                    <img src="assets/gallery6.png" alt="Pre-wedding Moment 6" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: FINAL MESSAGE -->
+        <section id="final-message" class="scroll-reveal section-padding">
+            <div class="glass-card main-card-layout">
+                <div class="card-deco-top"></div>
+                <div class="translation-text hindi-font final-blessings">
+                    "आपका स्नेह, आशीर्वाद एवं शुभकामनाएँ<br>
+                    साहिल एवं कोमल के जीवन को<br>
+                    सदैव सुख, समृद्धि एवं प्रेम से भर दें।"
+                </div>
+                <div class="divider-line">
+                    <span class="divider-flower">🙏</span>
+                </div>
+                <div class="invite-footer-text devanagari-font">
+                    आप सपरिवार सादर आमंत्रित हैं।
+                </div>
+                <div class="card-deco-bottom"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: THANK YOU -->
+        <footer id="thank-you" class="scroll-reveal">
+            <div class="thank-you-container">
+                <h2 class="thank-you-title">Dhanyawaad</h2>
+                <p class="thank-you-subtitle">Thank You</p>
+                <div class="gold-line"></div>
+                <p class="family-host">- Mandot & Sharma Families -</p>
+                <div class="footer-diyas">
+                    <span class="diya"><i class="fa-solid fa-fire"></i></span>
+                    <span class="diya"><i class="fa-solid fa-fire"></i></span>
+                    <span class="diya"><i class="fa-solid fa-fire"></i></span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Custom Javascript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
