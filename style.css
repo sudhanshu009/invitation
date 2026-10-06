@@ -962,9 +962,24 @@ body {
 .get-directions-btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 12px;
     text-decoration: none;
-    margin-top: 10px;
+    margin-top: 15px;
+    padding: 14px 32px;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    max-width: 90%;
+}
+
+.get-directions-btn i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.get-directions-btn:hover i {
+    transform: translateX(3px) translateY(-3px);
 }
 
 /* --------------------------------------------------
@@ -1270,5 +1285,17 @@ body {
     
     .shloka-text {
         font-size: 1.15rem;
+    }
+
+    .get-directions-btn {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+        width: auto;
+        white-space: nowrap;
+    }
+
+    .venue-address {
+        font-size: 0.95rem;
     }
 }
