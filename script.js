@@ -348,4 +348,54 @@ document.addEventListener('DOMContentLoaded', () => {
     // Track scroll elements
     const elementsToReveal = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right');
     elementsToReveal.forEach(el => revealObserver.observe(el));
+
+    /* --------------------------------------------------
+     * 8. REAL-TIME GLOBAL VISITOR COUNTER LOGIC
+     * -------------------------------------------------- */
+    
+    function renderVisitorCount(count) {
+        const formatted = String(count).padStart(5, '0');
+        for (let i = 1; i <= 5; i++) {
+            const digitEl = document.getElementById(`vc-d${i}`);
+            if (digitEl) {
+                digitEl.innerText = formatted[i - 1] || '0';
+            }
+        }
+    }
+
+    async function initVisitorCounter() {
+        const STORAGE_KEY = 'wedding_visitor_count_v2';
+        const BASE_COUNT = 10; // Start at 10
+        
+        let localCount = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+        if (isNaN(localCount) || localCount < BASE_COUNT) {
+            localCount = BASE_COUNT;
+        }
+
+        // Show base estimate (starts with 10)
+        renderVisitorCount(localCount);
+
+        try {
+            const namespace = 'aditya_komal_wedding_invitation_v2';
+            const res = await fetch(`https://api.counterapi.dev/v1/${namespace}/visits/up`);
+            if (res.ok) {
+                const data = await res.json();
+                if (data && typeof data.count === 'number') {
+                    const realCount = BASE_COUNT + (data.count - 1);
+                    localStorage.setItem(STORAGE_KEY, realCount);
+                    renderVisitorCount(realCount);
+                    return;
+                }
+            }
+        } catch (err) {
+            console.log('Global counter API offline, using local counter fallback:', err);
+        }
+
+        // Fallback if network/API is unavailable: increment on every visit
+        localCount += 1;
+        localStorage.setItem(STORAGE_KEY, localCount);
+        renderVisitorCount(localCount);
+    }
+
+    initVisitorCounter();
 });
